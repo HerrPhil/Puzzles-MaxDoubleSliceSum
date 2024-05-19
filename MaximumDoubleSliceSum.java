@@ -9,6 +9,7 @@ public class MaximumDoubleSliceSum {
             System.out.printf("java MaximumDoubleSliceSum%n");
             return;
         }
+//        int [] A = new int [] {3, 2, 6};
         int [] A = new int [] {3, 2, 6, -1, 4, 5, -1, 2};
         MaximumDoubleSliceSum maximum = new MaximumDoubleSliceSum();
         int result = maximum.solution(A);
@@ -17,6 +18,7 @@ public class MaximumDoubleSliceSum {
 
     public int solution(int [] A) {
         int N = A.length;
+        if (N < 3) return 0;
         int[] K1 = new int[N];
         int[] K2 = new int[N];
         for (int i = 1; i < N - 1; i++) {
@@ -25,6 +27,9 @@ public class MaximumDoubleSliceSum {
         for (int i = N - 2; i > 0; i--) {
             K2[i] = Math.max(K2[i + 1] + A[i], 0);
         }
+
+        System.out.printf("K1 is %s%n", Arrays.toString(K1));
+        System.out.printf("K2 is %s%n", Arrays.toString(K2));
 
         int max = 0;
 
